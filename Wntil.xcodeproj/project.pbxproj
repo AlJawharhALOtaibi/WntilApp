@@ -11,11 +11,12 @@
 		A580EC792B594FF300445DAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC782B594FF300445DAF /* ContentView.swift */; };
 		A580EC7B2B594FF400445DAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A580EC7A2B594FF400445DAF /* Assets.xcassets */; };
 		A580EC7E2B594FF400445DAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A580EC7D2B594FF400445DAF /* Preview Assets.xcassets */; };
-		A580EC802B594FF400445DAF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC7F2B594FF400445DAF /* Persistence.swift */; };
 		A580EC832B594FF400445DAF /* Wntil.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A580EC812B594FF400445DAF /* Wntil.xcdatamodeld */; };
-		A580EC8D2B594FF400445DAF /* WntilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC8C2B594FF400445DAF /* WntilTests.swift */; };
-		A580EC972B594FF400445DAF /* WntilUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC962B594FF400445DAF /* WntilUITests.swift */; };
-		A580EC992B594FF400445DAF /* WntilUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC982B594FF400445DAF /* WntilUITestsLaunchTests.swift */; };
+		A580ECA62B59512E00445DAF /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580ECA52B59512E00445DAF /* MainPage.swift */; };
+		A580ECA82B59514A00445DAF /* WalkPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580ECA72B59514A00445DAF /* WalkPage.swift */; };
+		A580ECAA2B59516300445DAF /* CapturePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580ECA92B59516300445DAF /* CapturePage.swift */; };
+		A580ECAC2B59516D00445DAF /* DonePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580ECAB2B59516D00445DAF /* DonePage.swift */; };
+		A580ECAE2B59517900445DAF /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580ECAD2B59517900445DAF /* ProfilePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,13 +42,14 @@
 		A580EC782B594FF300445DAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A580EC7A2B594FF400445DAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A580EC7D2B594FF400445DAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A580EC7F2B594FF400445DAF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A580EC822B594FF400445DAF /* Wntil.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wntil.xcdatamodel; sourceTree = "<group>"; };
 		A580EC882B594FF400445DAF /* WntilTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WntilTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A580EC8C2B594FF400445DAF /* WntilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WntilTests.swift; sourceTree = "<group>"; };
 		A580EC922B594FF400445DAF /* WntilUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WntilUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A580EC962B594FF400445DAF /* WntilUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WntilUITests.swift; sourceTree = "<group>"; };
-		A580EC982B594FF400445DAF /* WntilUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WntilUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A580ECA52B59512E00445DAF /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
+		A580ECA72B59514A00445DAF /* WalkPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkPage.swift; sourceTree = "<group>"; };
+		A580ECA92B59516300445DAF /* CapturePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturePage.swift; sourceTree = "<group>"; };
+		A580ECAB2B59516D00445DAF /* DonePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonePage.swift; sourceTree = "<group>"; };
+		A580ECAD2B59517900445DAF /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				A580EC752B594FF300445DAF /* Wntil */,
-				A580EC8B2B594FF400445DAF /* WntilTests */,
-				A580EC952B594FF400445DAF /* WntilUITests */,
 				A580EC742B594FF300445DAF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,8 +100,12 @@
 			children = (
 				A580EC762B594FF300445DAF /* WntilApp.swift */,
 				A580EC782B594FF300445DAF /* ContentView.swift */,
+				A580ECA52B59512E00445DAF /* MainPage.swift */,
+				A580ECA72B59514A00445DAF /* WalkPage.swift */,
+				A580ECA92B59516300445DAF /* CapturePage.swift */,
+				A580ECAB2B59516D00445DAF /* DonePage.swift */,
+				A580ECAD2B59517900445DAF /* ProfilePage.swift */,
 				A580EC7A2B594FF400445DAF /* Assets.xcassets */,
-				A580EC7F2B594FF400445DAF /* Persistence.swift */,
 				A580EC812B594FF400445DAF /* Wntil.xcdatamodeld */,
 				A580EC7C2B594FF400445DAF /* Preview Content */,
 			);
@@ -114,23 +118,6 @@
 				A580EC7D2B594FF400445DAF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		A580EC8B2B594FF400445DAF /* WntilTests */ = {
-			isa = PBXGroup;
-			children = (
-				A580EC8C2B594FF400445DAF /* WntilTests.swift */,
-			);
-			path = WntilTests;
-			sourceTree = "<group>";
-		};
-		A580EC952B594FF400445DAF /* WntilUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A580EC962B594FF400445DAF /* WntilUITests.swift */,
-				A580EC982B594FF400445DAF /* WntilUITestsLaunchTests.swift */,
-			);
-			path = WntilUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,10 +250,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A580ECAC2B59516D00445DAF /* DonePage.swift in Sources */,
 				A580EC832B594FF400445DAF /* Wntil.xcdatamodeld in Sources */,
-				A580EC802B594FF400445DAF /* Persistence.swift in Sources */,
+				A580ECAE2B59517900445DAF /* ProfilePage.swift in Sources */,
 				A580EC792B594FF300445DAF /* ContentView.swift in Sources */,
 				A580EC772B594FF300445DAF /* WntilApp.swift in Sources */,
+				A580ECAA2B59516300445DAF /* CapturePage.swift in Sources */,
+				A580ECA62B59512E00445DAF /* MainPage.swift in Sources */,
+				A580ECA82B59514A00445DAF /* WalkPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +265,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A580EC8D2B594FF400445DAF /* WntilTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +272,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A580EC972B594FF400445DAF /* WntilUITests.swift in Sources */,
-				A580EC992B594FF400445DAF /* WntilUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
