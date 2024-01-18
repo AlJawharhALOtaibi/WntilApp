@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A580EC772B594FF300445DAF /* WntilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC762B594FF300445DAF /* WntilApp.swift */; };
+		A580EC792B594FF300445DAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC782B594FF300445DAF /* ContentView.swift */; };
+		A580EC7B2B594FF400445DAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A580EC7A2B594FF400445DAF /* Assets.xcassets */; };
+		A580EC7E2B594FF400445DAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A580EC7D2B594FF400445DAF /* Preview Assets.xcassets */; };
+		A580EC802B594FF400445DAF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC7F2B594FF400445DAF /* Persistence.swift */; };
+		A580EC832B594FF400445DAF /* Wntil.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A580EC812B594FF400445DAF /* Wntil.xcdatamodeld */; };
+		A580EC8D2B594FF400445DAF /* WntilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC8C2B594FF400445DAF /* WntilTests.swift */; };
+		A580EC972B594FF400445DAF /* WntilUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC962B594FF400445DAF /* WntilUITests.swift */; };
+		A580EC992B594FF400445DAF /* WntilUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC982B594FF400445DAF /* WntilUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A580EC892B594FF400445DAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A580EC6B2B594FF300445DAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A580EC722B594FF300445DAF;
+			remoteInfo = Wntil;
+		};
+		A580EC932B594FF400445DAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A580EC6B2B594FF300445DAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A580EC722B594FF300445DAF;
+			remoteInfo = Wntil;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A580EC732B594FF300445DAF /* Wntil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wntil.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A580EC762B594FF300445DAF /* WntilApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WntilApp.swift; sourceTree = "<group>"; };
+		A580EC782B594FF300445DAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A580EC7A2B594FF400445DAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A580EC7D2B594FF400445DAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A580EC7F2B594FF400445DAF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		A580EC822B594FF400445DAF /* Wntil.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wntil.xcdatamodel; sourceTree = "<group>"; };
+		A580EC882B594FF400445DAF /* WntilTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WntilTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A580EC8C2B594FF400445DAF /* WntilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WntilTests.swift; sourceTree = "<group>"; };
+		A580EC922B594FF400445DAF /* WntilUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WntilUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A580EC962B594FF400445DAF /* WntilUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WntilUITests.swift; sourceTree = "<group>"; };
+		A580EC982B594FF400445DAF /* WntilUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WntilUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A580EC702B594FF300445DAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A580EC852B594FF400445DAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A580EC8F2B594FF400445DAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A580EC6A2B594FF300445DAF = {
+			isa = PBXGroup;
+			children = (
+				A580EC752B594FF300445DAF /* Wntil */,
+				A580EC8B2B594FF400445DAF /* WntilTests */,
+				A580EC952B594FF400445DAF /* WntilUITests */,
+				A580EC742B594FF300445DAF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A580EC742B594FF300445DAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A580EC732B594FF300445DAF /* Wntil.app */,
+				A580EC882B594FF400445DAF /* WntilTests.xctest */,
+				A580EC922B594FF400445DAF /* WntilUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A580EC752B594FF300445DAF /* Wntil */ = {
+			isa = PBXGroup;
+			children = (
+				A580EC762B594FF300445DAF /* WntilApp.swift */,
+				A580EC782B594FF300445DAF /* ContentView.swift */,
+				A580EC7A2B594FF400445DAF /* Assets.xcassets */,
+				A580EC7F2B594FF400445DAF /* Persistence.swift */,
+				A580EC812B594FF400445DAF /* Wntil.xcdatamodeld */,
+				A580EC7C2B594FF400445DAF /* Preview Content */,
+			);
+			path = Wntil;
+			sourceTree = "<group>";
+		};
+		A580EC7C2B594FF400445DAF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A580EC7D2B594FF400445DAF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A580EC8B2B594FF400445DAF /* WntilTests */ = {
+			isa = PBXGroup;
+			children = (
+				A580EC8C2B594FF400445DAF /* WntilTests.swift */,
+			);
+			path = WntilTests;
+			sourceTree = "<group>";
+		};
+		A580EC952B594FF400445DAF /* WntilUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A580EC962B594FF400445DAF /* WntilUITests.swift */,
+				A580EC982B594FF400445DAF /* WntilUITestsLaunchTests.swift */,
+			);
+			path = WntilUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A580EC722B594FF300445DAF /* Wntil */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A580EC9C2B594FF400445DAF /* Build configuration list for PBXNativeTarget "Wntil" */;
+			buildPhases = (
+				A580EC6F2B594FF300445DAF /* Sources */,
+				A580EC702B594FF300445DAF /* Frameworks */,
+				A580EC712B594FF300445DAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wntil;
+			productName = Wntil;
+			productReference = A580EC732B594FF300445DAF /* Wntil.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A580EC872B594FF400445DAF /* WntilTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A580EC9F2B594FF400445DAF /* Build configuration list for PBXNativeTarget "WntilTests" */;
+			buildPhases = (
+				A580EC842B594FF400445DAF /* Sources */,
+				A580EC852B594FF400445DAF /* Frameworks */,
+				A580EC862B594FF400445DAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A580EC8A2B594FF400445DAF /* PBXTargetDependency */,
+			);
+			name = WntilTests;
+			productName = WntilTests;
+			productReference = A580EC882B594FF400445DAF /* WntilTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A580EC912B594FF400445DAF /* WntilUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A580ECA22B594FF400445DAF /* Build configuration list for PBXNativeTarget "WntilUITests" */;
+			buildPhases = (
+				A580EC8E2B594FF400445DAF /* Sources */,
+				A580EC8F2B594FF400445DAF /* Frameworks */,
+				A580EC902B594FF400445DAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A580EC942B594FF400445DAF /* PBXTargetDependency */,
+			);
+			name = WntilUITests;
+			productName = WntilUITests;
+			productReference = A580EC922B594FF400445DAF /* WntilUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A580EC6B2B594FF300445DAF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					A580EC722B594FF300445DAF = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					A580EC872B594FF400445DAF = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = A580EC722B594FF300445DAF;
+					};
+					A580EC912B594FF400445DAF = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = A580EC722B594FF300445DAF;
+					};
+				};
+			};
+			buildConfigurationList = A580EC6E2B594FF300445DAF /* Build configuration list for PBXProject "Wntil" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A580EC6A2B594FF300445DAF;
+			productRefGroup = A580EC742B594FF300445DAF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A580EC722B594FF300445DAF /* Wntil */,
+				A580EC872B594FF400445DAF /* WntilTests */,
+				A580EC912B594FF400445DAF /* WntilUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A580EC712B594FF300445DAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A580EC7E2B594FF400445DAF /* Preview Assets.xcassets in Resources */,
+				A580EC7B2B594FF400445DAF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A580EC862B594FF400445DAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A580EC902B594FF400445DAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A580EC6F2B594FF300445DAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A580EC832B594FF400445DAF /* Wntil.xcdatamodeld in Sources */,
+				A580EC802B594FF400445DAF /* Persistence.swift in Sources */,
+				A580EC792B594FF300445DAF /* ContentView.swift in Sources */,
+				A580EC772B594FF300445DAF /* WntilApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A580EC842B594FF400445DAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A580EC8D2B594FF400445DAF /* WntilTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A580EC8E2B594FF400445DAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A580EC972B594FF400445DAF /* WntilUITests.swift in Sources */,
+				A580EC992B594FF400445DAF /* WntilUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A580EC8A2B594FF400445DAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A580EC722B594FF300445DAF /* Wntil */;
+			targetProxy = A580EC892B594FF400445DAF /* PBXContainerItemProxy */;
+		};
+		A580EC942B594FF400445DAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A580EC722B594FF300445DAF /* Wntil */;
+			targetProxy = A580EC932B594FF400445DAF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A580EC9A2B594FF400445DAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A580EC9B2B594FF400445DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A580EC9D2B594FF400445DAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Wntil/Preview Content\"";
+				DEVELOPMENT_TEAM = V6P9B428J2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = iOS.Wntil;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A580EC9E2B594FF400445DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Wntil/Preview Content\"";
+				DEVELOPMENT_TEAM = V6P9B428J2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = iOS.Wntil;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A580ECA02B594FF400445DAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6P9B428J2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = iOS.WntilTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wntil.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Wntil";
+			};
+			name = Debug;
+		};
+		A580ECA12B594FF400445DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6P9B428J2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = iOS.WntilTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wntil.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Wntil";
+			};
+			name = Release;
+		};
+		A580ECA32B594FF400445DAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6P9B428J2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = iOS.WntilUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wntil;
+			};
+			name = Debug;
+		};
+		A580ECA42B594FF400445DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6P9B428J2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = iOS.WntilUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wntil;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A580EC6E2B594FF300445DAF /* Build configuration list for PBXProject "Wntil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A580EC9A2B594FF400445DAF /* Debug */,
+				A580EC9B2B594FF400445DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A580EC9C2B594FF400445DAF /* Build configuration list for PBXNativeTarget "Wntil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A580EC9D2B594FF400445DAF /* Debug */,
+				A580EC9E2B594FF400445DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A580EC9F2B594FF400445DAF /* Build configuration list for PBXNativeTarget "WntilTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A580ECA02B594FF400445DAF /* Debug */,
+				A580ECA12B594FF400445DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A580ECA22B594FF400445DAF /* Build configuration list for PBXNativeTarget "WntilUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A580ECA32B594FF400445DAF /* Debug */,
+				A580ECA42B594FF400445DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A580EC812B594FF400445DAF /* Wntil.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A580EC822B594FF400445DAF /* Wntil.xcdatamodel */,
+			);
+			currentVersion = A580EC822B594FF400445DAF /* Wntil.xcdatamodel */;
+			path = Wntil.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A580EC6B2B594FF300445DAF /* Project object */;
+}
