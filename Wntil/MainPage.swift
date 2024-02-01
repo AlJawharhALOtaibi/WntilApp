@@ -5,86 +5,207 @@
 //  Created by AlJawharh AlOtaibi on 06/07/1445 AH.
 //
 
-import Foundation
 import SwiftUI
-import UIKit
+import CoreData
 
-class ViewController: UIViewController {
-
-    let greetingsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Hello, User!"
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    let profileImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "profile_pic")) // Replace "profile_pic" with your actual image name
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
-    let activityBar: UIProgressView = {
-        let progressView = UIProgressView(progressViewStyle: .bar)
-        progressView.progress = 0.7 // Set the initial progress value
-        progressView.translatesAutoresizingMaskIntoConstraints = false
-        return progressView
-    }()
-
-    let actionButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Click me", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    let hiddenObject: UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Add subviews
-        view.addSubview(greetingsLabel)
-        view.addSubview(profileImageView)
-        view.addSubview(activityBar)
-        view.addSubview(actionButton)
-        view.addSubview(hiddenObject)
-
-        // Layout constraints
-        NSLayoutConstraint.activate([
-            greetingsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            greetingsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-
-            profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            profileImageView.widthAnchor.constraint(equalToConstant: 50),
-            profileImageView.heightAnchor.constraint(equalToConstant: 50),
-
-            activityBar.topAnchor.constraint(equalTo: greetingsLabel.bottomAnchor, constant: 20),
-            activityBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            activityBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-
-            actionButton.topAnchor.constraint(equalTo: activityBar.bottomAnchor, constant: 20),
-            actionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
-            hiddenObject.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            hiddenObject.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            hiddenObject.widthAnchor.constraint(equalToConstant: 100),
-            hiddenObject.heightAnchor.constraint(equalToConstant: 100)
-        ])
+struct MainPage: View {    
+    @State private var showOtherObjectView = false
+    @State private var currentLevel = 5
+    @State private var upcomingLevel = 9
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    
+    var body: some View {
+        TabView {
+            HomeView(currentLevel: $currentLevel, upcomingLevel: $upcomingLevel, showOtherObjectView: $showOtherObjectView)
+                .tabItem {
+                    Image(systemName: "flame.fill")
+                    Text("Main")
+                }
+                     
+            
+            HistoryPage()
+                .tabItem {
+                    Image(systemName: "clock.fill")
+                    Text("History")
+                }
+        }
+        .accentColor(.customBlue)
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+        }
     }
+    
+    
+    struct HomeView: View {
+        
+        @Binding var currentLevel: Int
+        @Binding var upcomingLevel: Int
+        @Binding var showOtherObjectView: Bool
+        @State private var objects: [(name: String, emoji: String)] = [
+                    ("Object1", "🌟"), ("Object2", "🚀"), ("Object3", "🌈"),
+                    ("Object4", "🌺"), ("Object5", "🎉"), ("Object6", "🎸"),
+                    ("Object7", "🍕"), ("Object8", "🚲"), ("Object9", "📚"),
+                    ("Object10", "🍦"), ("Object11", "🏆"), ("Object12", "🎨"),
+                    ("Object13", "🌍"), ("Object14", "🛸"), ("Object15", "🌕")
+                ]
 
-    @objc func buttonTapped() {
-        hiddenObject.isHidden = !hiddenObject.isHidden
+        @State private var selectedObject: (name: String, emoji: String)?
+        
+        
+        var body: some View {
+            NavigationView {
+                ZStack {
+                    VStack {
+                        HStack {
+                            VStack {
+                                Text(greetingByTime())
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .padding(.leading, -2)
+                                
+                                Text("Ready to burn and win?")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.gray)
+                                    .padding(.leading, -10)
+                            }
+                            Spacer()
+                            
+                            NavigationLink(destination: ProfileView()) {
+                                Image("Profile")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 60, height: 60)
+                                    .padding()
+                                    .accessibility(label: Text("Profile"))
+                            }
+                        }
+                        .padding()
+                        
+                        LevelCardView(currentLevel: $currentLevel, upcomingLevel: $upcomingLevel)
+                        
+                        Text("Fairy has selected your challenge. Start Walking!")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            .padding(.top, 20)
+                            .multilineTextAlignment(.center)
+                        
+                        Image("CenterFire")
+                            .resizable()
+                            .frame(width: 170, height: 220)
+                            .overlay(
+                                VStack {
+                                    Text(selectedObject?.emoji ?? "Click to Start")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.white)
+                                    
+                                    Text(selectedObject?.name ?? "")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                }
+                            )
+                            .onTapGesture {
+                                if !showOtherObjectView {
+                                    objects.shuffle()
+                                    selectedObject = objects.randomElement()
+                                }
+                            }
+                            .accessibility(label: Text("Challenge Image"))
+                            .accessibility(hint: Text("Tap to change the challenge"))
+                        
+                        Button(action: {
+                        }) {
+                            NavigationLink(destination: WalkPage(),
+                                           isActive: $showOtherObjectView) {
+                                Text("Let's Go!")
+                                    .font(.headline)
+                                    .frame(width: 300, height: 50)
+                                    .foregroundColor(.white)
+                                    .background(Color.customBlue)
+                                    .cornerRadius(10)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 4)
+                            }
+                        }
+                        .accessibility(label: Text("Start Walking Button"))
+                        
+                        Spacer()
+                    }
+                    .padding()
+                }
+            }
+        }
+                
+        func greetingByTime() -> String {
+            let currentDate = Date()
+            let calendar = Calendar.current
+            let currentHour = calendar.component(.hour, from: currentDate)
+            
+            if 5 <= currentHour && currentHour < 12 {
+                return "Good Morning!"
+            } else if 12 <= currentHour && currentHour < 18 {
+                return "Good Afternoon!"
+            } else {
+                return "Good Evening!"
+            }
+        }
     }
+    
+    struct LevelCardView: View {
+        @Binding var currentLevel: Int
+        @Binding var upcomingLevel: Int
+        
+        var body: some View {
+            ZStack {
+                Image("Card")
+                    .resizable()
+                    .frame(width: 330, height: 150)
+                
+                VStack {
+                    HStack {
+                        Text("Your current level and what lies ahead for the subsequent level!")
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                        CircularProgressView(progress: CGFloat(currentLevel) / CGFloat(upcomingLevel))
+                            .frame(width: 70, height: 70)
+                        
+                    }
+                    .padding()
+                    
+                }
+                .padding()
+            }
+            .cornerRadius(10)
+        }
+    }
+    
+    
+    struct CircularProgressView: View {
+        var progress: CGFloat
+        
+        var body: some View {
+            ZStack {
+                Circle()
+                    .stroke(lineWidth: 10)
+                    .opacity(0.2)
+                    .foregroundColor(Color.customLightBlue)
+                
+                Circle()
+                    .trim(from: 0.0, to: progress)
+                    .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                    .foregroundColor(Color.customBlue)
+                    .rotationEffect(Angle(degrees: -90))
+                    .animation(.linear)
+                
+                Image("FirstLevel")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 40, height: 40)
+                    .foregroundColor(Color.yellow)
+            }
+        }
+    }
+    
 }
-

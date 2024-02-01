@@ -9,10 +9,31 @@ import SwiftUI
 
 @main
 struct WntilApp: App {
-   
+    @StateObject private var dataController = DataController()
+    @State private var showOnboarding = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if showOnboarding {
+                OnBoardings()
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
+                    .onAppear {
+                        UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+                    }
+            } 
+            
+            else {
+                MainPage()
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
+
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            withAnimation {
+                                showOnboarding = true
+                            }
+                        }
+                    }
+            }
         }
     }
 }
