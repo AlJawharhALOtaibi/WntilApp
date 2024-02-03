@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct WntilApp: App {
-    @StateObject private var dataController = DataController()
+    @StateObject var dataController = DataController()
     @State private var showOnboarding = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
 
     var body: some Scene {

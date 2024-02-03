@@ -79,6 +79,8 @@ struct ActivityView: View {
 
 
 struct WalkPage: View {
+    @StateObject var dataController = DataController()
+    @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var showAlert = false
     @State private var showMessage = false
@@ -149,7 +151,7 @@ struct WalkPage: View {
                 .aspectRatio(contentMode: .fill)
                 .accessibility(label: Text("Skyline image"))
 
-            GifImage(name: "Fairy")
+              GifImage(name: "Fairy")
                 .accessibility(label: Text("Walkline image"))
                 .offset(y: 100)
                 .overlay(
@@ -301,9 +303,12 @@ private func startCounting() {
 }
 
 private func stopCounting() {
+
     shouldContinueCounting = false // Stop counting when the image is captured
     isCounting = false
     pedometer.stopUpdates()
+    dataController.addHistory(date: Date(), stepCount: stepCount, calorieCount: calorieCount, context:viewContext)
+    dataController.save(context: dataController.container.viewContext)
 }
 
 private func formattedTime(_ time: TimeInterval) -> String {
@@ -332,6 +337,7 @@ static var previews: some View {
 WalkPage()
 }
 }
+
 
       
     
