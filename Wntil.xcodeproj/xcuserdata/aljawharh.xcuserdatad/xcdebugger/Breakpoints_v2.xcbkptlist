@@ -20,5 +20,83 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BF150749-6B99-416D-A00C-160B512ABA40"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Wntil/CoreDataStack.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "CoreDataStack"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "BF150749-6B99-416D-A00C-160B512ABA40 - 43d5664502be27ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wntil.CoreDataStack.__allocating_init() -&gt; Wntil.CoreDataStack"
+                  moduleName = "Wntil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aljawharh/Desktop/Wntil/Wntil/CoreDataStack.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "BF150749-6B99-416D-A00C-160B512ABA40 - ceae7c73152d82d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wntil.CoreDataStack.deinit"
+                  moduleName = "Wntil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aljawharh/Desktop/Wntil/Wntil/CoreDataStack.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "BF150749-6B99-416D-A00C-160B512ABA40 - 3aee996ed1630121"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wntil.CoreDataStack.__deallocating_deinit"
+                  moduleName = "Wntil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aljawharh/Desktop/Wntil/Wntil/CoreDataStack.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "BF150749-6B99-416D-A00C-160B512ABA40 - 8413e3fdf2be89c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Wntil.CoreDataStack.init() -&gt; Wntil.CoreDataStack"
+                  moduleName = "Wntil"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aljawharh/Desktop/Wntil/Wntil/CoreDataStack.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

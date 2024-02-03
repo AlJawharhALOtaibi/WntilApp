@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E23AF602B6D5B2000BE6F64 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E23AF5F2B6D5B2000BE6F64 /* CoreDataStack.swift */; };
+		0E23AF6C2B6D6BB800BE6F64 /* HistoryModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E23AF6A2B6D6BB800BE6F64 /* HistoryModel.xcdatamodeld */; };
+		0E23AF762B6DD4BC00BE6F64 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E23AF752B6DD4BC00BE6F64 /* GifImage.swift */; };
 		A580EC772B594FF300445DAF /* WntilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC762B594FF300445DAF /* WntilApp.swift */; };
 		A580EC7B2B594FF400445DAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A580EC7A2B594FF400445DAF /* Assets.xcassets */; };
 		A580EC7E2B594FF400445DAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A580EC7D2B594FF400445DAF /* Preview Assets.xcassets */; };
@@ -21,7 +24,6 @@
 		A5987F9E2B671F8B005D0FD7 /* HistoryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5987F9D2B671F8B005D0FD7 /* HistoryPage.swift */; };
 		A5A7160B2B5D42200001FA13 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A7160A2B5D42200001FA13 /* Colors.swift */; };
 		A5B6DBE72B5EB1D5001D24EC /* SplashPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6DBE62B5EB1D5001D24EC /* SplashPage.swift */; };
-		A5FA0F932B6BE53D00ED2C90 /* Github test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FA0F922B6BE53D00ED2C90 /* Github test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E23AF5F2B6D5B2000BE6F64 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		0E23AF6B2B6D6BB800BE6F64 /* HistoryModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HistoryModel.xcdatamodel; sourceTree = "<group>"; };
+		0E23AF752B6DD4BC00BE6F64 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		A580EC732B594FF300445DAF /* Wntil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wntil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A580EC762B594FF300445DAF /* WntilApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WntilApp.swift; sourceTree = "<group>"; };
 		A580EC7A2B594FF400445DAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +65,6 @@
 		A5A7160A2B5D42200001FA13 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A5B6DBE62B5EB1D5001D24EC /* SplashPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPage.swift; sourceTree = "<group>"; };
 		A5FA0F8C2B6A66B300ED2C90 /* Wntil.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wntil.entitlements; sourceTree = "<group>"; };
-		A5FA0F922B6BE53D00ED2C90 /* Github test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Github test.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				A5FA0F8C2B6A66B300ED2C90 /* Wntil.entitlements */,
+				0E23AF5F2B6D5B2000BE6F64 /* CoreDataStack.swift */,
+				0E23AF752B6DD4BC00BE6F64 /* GifImage.swift */,
 				A5987F992B613B89005D0FD7 /* DataController.swift */,
 				A580EC762B594FF300445DAF /* WntilApp.swift */,
 				A5B6DBE62B5EB1D5001D24EC /* SplashPage.swift */,
@@ -121,9 +127,9 @@
 				A580ECAB2B59516D00445DAF /* DonePage.swift */,
 				A580ECAD2B59517900445DAF /* ProfilePage.swift */,
 				A5A7160A2B5D42200001FA13 /* Colors.swift */,
-				A5FA0F922B6BE53D00ED2C90 /* Github test.swift */,
 				A580EC7A2B594FF400445DAF /* Assets.xcassets */,
 				A580EC812B594FF400445DAF /* Wntil.xcdatamodeld */,
+				0E23AF6A2B6D6BB800BE6F64 /* HistoryModel.xcdatamodeld */,
 				A580EC7C2B594FF400445DAF /* Preview Content */,
 			);
 			path = Wntil;
@@ -269,17 +275,19 @@
 			files = (
 				A580ECAC2B59516D00445DAF /* DonePage.swift in Sources */,
 				A5987F9A2B613B89005D0FD7 /* DataController.swift in Sources */,
+				0E23AF762B6DD4BC00BE6F64 /* GifImage.swift in Sources */,
 				A5987F9C2B613CF4005D0FD7 /* OnBoardings.swift in Sources */,
 				A5A7160B2B5D42200001FA13 /* Colors.swift in Sources */,
 				A5987F9E2B671F8B005D0FD7 /* HistoryPage.swift in Sources */,
 				A580EC832B594FF400445DAF /* Wntil.xcdatamodeld in Sources */,
 				A580ECAE2B59517900445DAF /* ProfilePage.swift in Sources */,
-				A5FA0F932B6BE53D00ED2C90 /* Github test.swift in Sources */,
+				0E23AF602B6D5B2000BE6F64 /* CoreDataStack.swift in Sources */,
 				A580EC772B594FF300445DAF /* WntilApp.swift in Sources */,
 				A580ECAA2B59516300445DAF /* CapturePage.swift in Sources */,
 				A5B6DBE72B5EB1D5001D24EC /* SplashPage.swift in Sources */,
 				A580ECA62B59512E00445DAF /* MainPage.swift in Sources */,
 				A580ECA82B59514A00445DAF /* WalkPage.swift in Sources */,
+				0E23AF6C2B6D6BB800BE6F64 /* HistoryModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,25 +446,28 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Wntil/Wntil.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wntil/Preview Content\"";
-				DEVELOPMENT_TEAM = V6P9B428J2;
+				DEVELOPMENT_TEAM = HFC8L93DU2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Please Allow access to use the app. ";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to camera to capture the object";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Please allow access to motion usage to count your steps";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = iOS.Wntil.mc3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Wntil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -469,25 +480,28 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Wntil/Wntil.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wntil/Preview Content\"";
-				DEVELOPMENT_TEAM = V6P9B428J2;
+				DEVELOPMENT_TEAM = HFC8L93DU2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Please Allow access to use the app. ";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to camera to capture the object";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Please allow access to motion usage to count your steps";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = iOS.Wntil.mc3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Wntil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -612,6 +626,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		0E23AF6A2B6D6BB800BE6F64 /* HistoryModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0E23AF6B2B6D6BB800BE6F64 /* HistoryModel.xcdatamodel */,
+			);
+			currentVersion = 0E23AF6B2B6D6BB800BE6F64 /* HistoryModel.xcdatamodel */;
+			path = HistoryModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		A580EC812B594FF400445DAF /* Wntil.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
