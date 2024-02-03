@@ -38,16 +38,14 @@ struct MainPage: View {
     
     
     struct HomeView: View {
-        
+        @State private var showButton = false
         @Binding var currentLevel: Int
         @Binding var upcomingLevel: Int
         @Binding var showOtherObjectView: Bool
         @State private var objects: [(name: String, emoji: String)] = [
-                    ("Object1", "🌟"), ("Object2", "🚀"), ("Object3", "🌈"),
-                    ("Object4", "🌺"), ("Object5", "🎉"), ("Object6", "🎸"),
-                    ("Object7", "🍕"), ("Object8", "🚲"), ("Object9", "📚"),
-                    ("Object10", "🍦"), ("Object11", "🏆"), ("Object12", "🎨"),
-                    ("Object13", "🌍"), ("Object14", "🛸"), ("Object15", "🌕")
+                    ("Red", "🔴"), ("Blue", "🔵"), ("Green", "🟢"),
+                    ("Bicycle", "🚲"), ("Train", "🚈"), ("Bus", "🚌"),
+                    ("Restaurant", "🍽️"), ("Cafe", "☕️"), ("Mosque", "🕌"), ("Stop Sign", "⛔️"), ("Park", "🌳"), ("Cat", "🐈"), ("Lighting", "💡"), ("Flowers", "🌷"), ("Yellow", "🌕")
                 ]
 
         @State private var selectedObject: (name: String, emoji: String)?
@@ -58,26 +56,29 @@ struct MainPage: View {
                 ZStack {
                     VStack {
                         HStack {
+                            
                             VStack {
                                 Text(greetingByTime())
-                                    .font(.title)
+                                    .font(.title2)
                                     .fontWeight(.bold)
-                                    .padding(.leading, -2)
+                                    .padding(.leading,-15)
                                 
+                                    .padding(.bottom,4)
+
                                 Text("Ready to burn and win?")
-                                    .font(.headline)
                                     .fontWeight(.bold)
                                     .foregroundStyle(.gray)
-                                    .padding(.leading, -10)
+                                    .font(.system(size: 13))                              .padding(.leading, -5)
                             }
+                            
                             Spacer()
                             
-                            NavigationLink(destination: ProfileView()) {
+                            NavigationLink(destination: ProfilePage()) {
                                 Image("Profile")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(width: 60, height: 60)
-                                    .padding()
+                                    .frame(width: 50, height: 50)
+                                    .padding(.trailing, 2)
                                     .accessibility(label: Text("Profile"))
                             }
                         }
@@ -85,49 +86,64 @@ struct MainPage: View {
                         
                         LevelCardView(currentLevel: $currentLevel, upcomingLevel: $upcomingLevel)
                         
-                        Text("Fairy has selected your challenge. Start Walking!")
+                        Text("Fairy has selected your challenge:")
                             .font(.headline)
                             .fontWeight(.bold)
                             .padding(.top, 20)
                             .multilineTextAlignment(.center)
+                            .font(.system(size: 20))
+                            .padding(.horizontal)
+
+                        Text("If you wish to select a different object, please double-click.")
+                            .font(.system(size: 14))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.gray)
+                            .padding(.horizontal)
+                            .padding(.top, 2)
+                            .padding(.bottom,10)
                         
                         Image("CenterFire")
-                            .resizable()
-                            .frame(width: 170, height: 220)
-                            .overlay(
-                                VStack {
-                                    Text(selectedObject?.emoji ?? "Click to Start")
-                                        .font(.system(size: 20))
-                                        .foregroundColor(.white)
-                                    
-                                    Text(selectedObject?.name ?? "")
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                }
-                            )
-                            .onTapGesture {
-                                if !showOtherObjectView {
-                                    objects.shuffle()
-                                    selectedObject = objects.randomElement()
-                                }
-                            }
-                            .accessibility(label: Text("Challenge Image"))
-                            .accessibility(hint: Text("Tap to change the challenge"))
-                        
-                        Button(action: {
-                        }) {
-                            NavigationLink(destination: WalkPage(),
-                                           isActive: $showOtherObjectView) {
-                                Text("Let's Go!")
-                                    .font(.headline)
-                                    .frame(width: 300, height: 50)
-                                    .foregroundColor(.white)
-                                    .background(Color.customBlue)
-                                    .cornerRadius(10)
-                                    .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 4)
-                            }
-                        }
-                        .accessibility(label: Text("Start Walking Button"))
+                                          .resizable()
+                                          .frame(width: 170, height: 220)
+                                          .padding(.bottom,20)
+                                          .overlay(
+                                              VStack {
+                                                  Text(selectedObject?.emoji ?? "Start")
+                                                      .padding(.top, 110)
+                                                      .font(.system(size: 30))
+                                                      .bold()
+                                                      .foregroundColor(.white)
+
+                                                  Text(selectedObject?.name ?? "")
+                                                      .font(.headline)
+                                                      .font(.system(size: 40))
+                                                      .foregroundColor(.white)
+                                              }
+                                          )
+                                          .onTapGesture {
+                                              if !showOtherObjectView {
+                                                  objects.shuffle()
+                                                  selectedObject = objects.randomElement()
+                                                  showButton = true
+                                              }
+                                          }
+                                          .accessibility(label: Text("Challenge Image"))
+                                          .accessibility(hint: Text("Tap to change the challenge"))
+
+                                      if showButton {
+                                          NavigationLink(destination: WalkPage(), isActive: $showOtherObjectView) {
+                                              Text("Let's Go!")
+                                                  .font(.headline)
+                                                  .frame(width: 300, height: 50)
+                                                  .foregroundColor(.white)
+                                                  .background(Color.customBlue)
+                                                  .cornerRadius(10)
+                                                  .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 4)
+                                          }
+                                          .accessibility(label: Text("Start Walking Button"))
+                                      }
+
+
                         
                         Spacer()
                     }
@@ -163,8 +179,10 @@ struct MainPage: View {
                 
                 VStack {
                     HStack {
-                        Text("Your current level and what lies ahead for the subsequent level!")
+                        Text("Achieve the next level by taking a 10,000-step walk!")
                             .fontWeight(.bold)
+                            .font(.system(size: 14))
+                            .padding(.horizontal)
                         
                         Spacer()
                         

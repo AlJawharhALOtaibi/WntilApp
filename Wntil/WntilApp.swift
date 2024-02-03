@@ -4,13 +4,14 @@
 //
 //  Created by AlJawharh AlOtaibi on 06/07/1445 AH.
 //
+// WntilApp.swift
 
 import SwiftUI
 
 @main
 struct WntilApp: App {
     @StateObject private var dataController = DataController()
-    @State private var showOnboarding = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+    @State private var showOnboarding = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
 
     var body: some Scene {
         WindowGroup {
@@ -20,12 +21,9 @@ struct WntilApp: App {
                     .onAppear {
                         UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
                     }
-            } 
-            
-            else {
+            } else {
                 MainPage()
                     .environment(\.managedObjectContext, dataController.container.viewContext)
-
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             withAnimation {

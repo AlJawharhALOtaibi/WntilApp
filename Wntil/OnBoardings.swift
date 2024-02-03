@@ -15,19 +15,18 @@ struct Page : Identifiable {
 }
 
 var Data = [
-    Page(id: 0, image: "ob1", title: "Walk to Hunt!", descrip: "Let each step be an adventure, as the pursuit adds excitement to your walk."),
-    Page(id: 1, image: "ob2", title: "Walk to Win!", descrip: "Share the path with familiar faces, creating lasting memories and celebrating each stride."),
-    Page(id: 2, image: "ob3", title: "Walk to Burn!", descrip: "Transform each step into a fitness adventure, fostering a healthier and more energetic lifestyle.")
+    Page(id: 0, image: "ob1", title: "Walk to Hunt!", descrip: "Explore within our historical sites, hunting for clues of our legacies and history, a lot of  treasures are wait for your discovery."),
+    
+    Page(id: 1, image: "ob2", title: "Walk to Win!", descrip: "Take a walk to catch one of our Riyadh flags, with the iconic Kingdom Tower invites you to explore its surroundings."),
+
+    Page(id: 2, image: "ob3", title: "Walk to Burn!", descrip: "Walk and witness how buildings reach for the sky. Burn calories and dispel any bad mood along the way.")
 ]
 
 
 struct OnBoardings: View {
     @State var showSheetView = false
     @State private var currentPage = 0
-    init() {
-        UIPageControl.appearance().currentPageIndicatorTintColor =   .blue
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.2)
-    }
+
     var body: some View {
         NavigationView {
             ZStack{
@@ -37,24 +36,35 @@ struct OnBoardings: View {
                         ForEach(0..<Data.count) { index in
                             GeometryReader { geometry in
                                 VStack {
-                                    Image(Data[index].image)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.5)
-                                        .padding()
+                                    HStack{
+                                        Text(Data[index].title)
+                                            .font(.title).bold()
+                                            .padding(.top, 100)
+                                            .foregroundColor(.customBlue)
+                                            .padding(.bottom, 10)
+                                        
+                                    } .padding(.trailing, 170)
+                                 
                                     
-                                    Text(Data[index].title)
-                                        .font(.title).bold()
-                                        .padding()
-                                        .multilineTextAlignment(.center)
                                     Text(Data[index].descrip)
-                                        .font(.headline)
-                                        .multilineTextAlignment(.center)
-                                        .foregroundColor(.gray)
                                         .padding(.horizontal)
-                                }
-                                .opacity(Double(geometry.frame(in: .global).minX) / 200 + 1)
-                                .frame(width: UIScreen.main.bounds.width)
+                                    
+                                    ZStack{
+                                   
+                                        Image("clouds")
+                                            .padding(.bottom, 30)
+                                      
+                                        ZStack{
+                                            Image(Data[index].image)
+                                                .padding(.top, 170)
+                                            
+                                            Image("fairyWalking")
+                                                .padding(.top, 300)
+
+                                        }
+                                        
+                                    }}
+
                             }
                         }
                     }
@@ -68,7 +78,6 @@ struct OnBoardings: View {
                                 .font(.headline)
                                 .frame(width: 300, height: 50)
                                 .background(Color.customBlue)
-
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                                 .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 4)
@@ -96,10 +105,5 @@ struct OnBoardings: View {
     }
 }
 
-struct Onboarding_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardings()
-    }
-}
 
 
