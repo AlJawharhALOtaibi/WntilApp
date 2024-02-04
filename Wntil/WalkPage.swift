@@ -244,6 +244,7 @@ struct WalkPage: View {
             
             Spacer()
                 .onAppear {
+                    startTimer()
                     startCounting()
                     requestMotionPermission()
                     
@@ -275,18 +276,21 @@ private func requestMotionPermission() {
          }
      }
  }
+    
+    
+    private func startTimer() {
+       
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                 guard shouldContinueCounting else {
+                     timer.invalidate()
+                     return
+                 }
+                 elapsedTime += 1
+        }
+    }
 
 private func startCounting() {
-    
-    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-        guard shouldContinueCounting else {
-            timer.invalidate()
-            return
-        }
-        elapsedTime += 1
-    
-    
-    
+
     guard CMPedometer.isStepCountingAvailable() else {
         print("Step counting not available on this device.")
         return
@@ -305,7 +309,7 @@ private func startCounting() {
             }
         }
     }
-}
+
 
     private func stopCounting() {
         
