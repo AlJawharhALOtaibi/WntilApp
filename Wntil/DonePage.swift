@@ -11,7 +11,7 @@ struct DonePage: View {
     var body: some View {
         VStack {
             
-            Image("Fairy") // Not Showing
+            Image("Fairy") 
                 .resizable()
                 .padding()
                 .accessibility(label: Text("Well Done Image"))

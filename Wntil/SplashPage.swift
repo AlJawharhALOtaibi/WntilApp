@@ -14,9 +14,8 @@ struct SplashView: View {
     var body: some View {
         ZStack {
             Color.white.edgesIgnoringSafeArea(.all)
-            
-            if let gifImage = UIImage(named: "splash") {
-                Image(uiImage: gifImage)
+        
+                Image("Fairy")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .onAppear {
@@ -25,9 +24,6 @@ struct SplashView: View {
                                 isAnimationFinished = true
                             }
                         }
-                    }
-                    .opacity(isAnimationFinished ? 0 : 1)
-                    .animation(.easeInOut(duration: 1.0))
             }
         }
     }

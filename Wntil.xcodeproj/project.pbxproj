@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E23AF602B6D5B2000BE6F64 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E23AF5F2B6D5B2000BE6F64 /* CoreDataStack.swift */; };
 		0E23AF6C2B6D6BB800BE6F64 /* HistoryModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E23AF6A2B6D6BB800BE6F64 /* HistoryModel.xcdatamodeld */; };
 		0E23AF762B6DD4BC00BE6F64 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E23AF752B6DD4BC00BE6F64 /* GifImage.swift */; };
+		0E9F05122B6FB8DF00A61A21 /* Fairy2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0E9F05112B6FB8DF00A61A21 /* Fairy2.gif */; };
+		0E9F05142B6FBC2700A61A21 /* Fairy3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0E9F05132B6FBC2700A61A21 /* Fairy3.gif */; };
+		0E9F05162B6FBF1E00A61A21 /* Fairy4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0E9F05152B6FBF1E00A61A21 /* Fairy4.gif */; };
 		A580EC772B594FF300445DAF /* WntilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580EC762B594FF300445DAF /* WntilApp.swift */; };
 		A580EC7B2B594FF400445DAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A580EC7A2B594FF400445DAF /* Assets.xcassets */; };
 		A580EC7E2B594FF400445DAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A580EC7D2B594FF400445DAF /* Preview Assets.xcassets */; };
 		A580EC832B594FF400445DAF /* Wntil.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A580EC812B594FF400445DAF /* Wntil.xcdatamodeld */; };
 		A580ECA62B59512E00445DAF /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580ECA52B59512E00445DAF /* MainPage.swift */; };
 		A580ECA82B59514A00445DAF /* WalkPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580ECA72B59514A00445DAF /* WalkPage.swift */; };
-		A580ECAA2B59516300445DAF /* CapturePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580ECA92B59516300445DAF /* CapturePage.swift */; };
 		A580ECAC2B59516D00445DAF /* DonePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580ECAB2B59516D00445DAF /* DonePage.swift */; };
 		A580ECAE2B59517900445DAF /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580ECAD2B59517900445DAF /* ProfilePage.swift */; };
 		A5987F9A2B613B89005D0FD7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5987F992B613B89005D0FD7 /* DataController.swift */; };
@@ -44,9 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E23AF5F2B6D5B2000BE6F64 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0E23AF6B2B6D6BB800BE6F64 /* HistoryModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HistoryModel.xcdatamodel; sourceTree = "<group>"; };
 		0E23AF752B6DD4BC00BE6F64 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
+		0E9F05112B6FB8DF00A61A21 /* Fairy2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Fairy2.gif; sourceTree = "<group>"; };
+		0E9F05132B6FBC2700A61A21 /* Fairy3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Fairy3.gif; sourceTree = "<group>"; };
+		0E9F05152B6FBF1E00A61A21 /* Fairy4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Fairy4.gif; sourceTree = "<group>"; };
 		A580EC732B594FF300445DAF /* Wntil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wntil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A580EC762B594FF300445DAF /* WntilApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WntilApp.swift; sourceTree = "<group>"; };
 		A580EC7A2B594FF400445DAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +59,6 @@
 		A580EC922B594FF400445DAF /* WntilUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WntilUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A580ECA52B59512E00445DAF /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		A580ECA72B59514A00445DAF /* WalkPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkPage.swift; sourceTree = "<group>"; };
-		A580ECA92B59516300445DAF /* CapturePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturePage.swift; sourceTree = "<group>"; };
 		A580ECAB2B59516D00445DAF /* DonePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonePage.swift; sourceTree = "<group>"; };
 		A580ECAD2B59517900445DAF /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
 		A5987F992B613B89005D0FD7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -113,19 +115,20 @@
 		A580EC752B594FF300445DAF /* Wntil */ = {
 			isa = PBXGroup;
 			children = (
+				0E9F05132B6FBC2700A61A21 /* Fairy3.gif */,
 				A5FA0F8C2B6A66B300ED2C90 /* Wntil.entitlements */,
-				0E23AF5F2B6D5B2000BE6F64 /* CoreDataStack.swift */,
-				0E23AF752B6DD4BC00BE6F64 /* GifImage.swift */,
-				A5987F992B613B89005D0FD7 /* DataController.swift */,
+				0E9F05152B6FBF1E00A61A21 /* Fairy4.gif */,
+				0E9F05112B6FB8DF00A61A21 /* Fairy2.gif */,
 				A580EC762B594FF300445DAF /* WntilApp.swift */,
+				A5987F992B613B89005D0FD7 /* DataController.swift */,
 				A5B6DBE62B5EB1D5001D24EC /* SplashPage.swift */,
 				A5987F9B2B613CF4005D0FD7 /* OnBoardings.swift */,
 				A580ECA52B59512E00445DAF /* MainPage.swift */,
 				A5987F9D2B671F8B005D0FD7 /* HistoryPage.swift */,
 				A580ECA72B59514A00445DAF /* WalkPage.swift */,
-				A580ECA92B59516300445DAF /* CapturePage.swift */,
 				A580ECAB2B59516D00445DAF /* DonePage.swift */,
 				A580ECAD2B59517900445DAF /* ProfilePage.swift */,
+				0E23AF752B6DD4BC00BE6F64 /* GifImage.swift */,
 				A5A7160A2B5D42200001FA13 /* Colors.swift */,
 				A580EC7A2B594FF400445DAF /* Assets.xcassets */,
 				A580EC812B594FF400445DAF /* Wntil.xcdatamodeld */,
@@ -247,8 +250,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E9F05142B6FBC2700A61A21 /* Fairy3.gif in Resources */,
 				A580EC7E2B594FF400445DAF /* Preview Assets.xcassets in Resources */,
+				0E9F05162B6FBF1E00A61A21 /* Fairy4.gif in Resources */,
 				A580EC7B2B594FF400445DAF /* Assets.xcassets in Resources */,
+				0E9F05122B6FB8DF00A61A21 /* Fairy2.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,9 +287,7 @@
 				A5987F9E2B671F8B005D0FD7 /* HistoryPage.swift in Sources */,
 				A580EC832B594FF400445DAF /* Wntil.xcdatamodeld in Sources */,
 				A580ECAE2B59517900445DAF /* ProfilePage.swift in Sources */,
-				0E23AF602B6D5B2000BE6F64 /* CoreDataStack.swift in Sources */,
 				A580EC772B594FF300445DAF /* WntilApp.swift in Sources */,
-				A580ECAA2B59516300445DAF /* CapturePage.swift in Sources */,
 				A5B6DBE72B5EB1D5001D24EC /* SplashPage.swift in Sources */,
 				A580ECA62B59512E00445DAF /* MainPage.swift in Sources */,
 				A580ECA82B59514A00445DAF /* WalkPage.swift in Sources */,

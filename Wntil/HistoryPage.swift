@@ -10,31 +10,35 @@ import CoreData
 struct HistoryPage: View {
     @FetchRequest(
         entity: HistoryItem.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \HistoryItem.date, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \HistoryItem.date, ascending: false)],
         animation: .default)
     private var historyItems: FetchedResults<HistoryItem>
 
     var body: some View {
-        List {
-            ForEach(historyItems) { historyItem in
-                HStack {
-                    Image(systemName: "calendar") 
+        NavigationView{
+            VStack{
+                HStack{
+                    Text("History List")
+                        .font(.title)
+                        .bold()
+                        .padding(.top,30)
                     
-                        .resizable()
-                        .frame(width: 20, height: 20) // Adjust size as needed
-                        .padding(.trailing, 8) // Add padding between image and text
+                } .padding(.trailing, 200)
 
-                    VStack(alignment: .leading, spacing: 4) {
-                        if let date = historyItem.date {
-                            Text("\(formattedDate(date))")
+                List {
+                    ForEach(historyItems) { historyItem in
+                        HStack {
+                            
+                            VStack(alignment: .leading, spacing: 4) {
+                                if let date = historyItem.date {
+                                    Text("\(formattedDate(date))")}
+                                Text("\(historyItem.stepCount) steps")
+                                Text("\(historyItem.calorieCount) Kcl")
+                            }
                         }
-                        Text("\(historyItem.stepCount) steps")
-                        Text("\(historyItem.calorieCount) Kcl")
                     }
                 }
-            }
-        }
-        .navigationTitle("History List")
+            }}
     }
 
     private func formattedDate(_ date: Date) -> String {

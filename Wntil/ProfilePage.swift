@@ -9,6 +9,7 @@ import SwiftUI
 import SafariServices
 
 struct ProfilePage: View {
+
     
     var body: some View {
         NavigationView {
@@ -43,7 +44,7 @@ struct ProfilePage: View {
                     .font(.system(size: 18, weight: .bold))
                     .foregroundColor(.black)
                 ) {
-                    WalkingStatsView(steps: 10000, calories: 300, time: "1h 30m")
+                    WalkingStatsView(steps:22 , calories: 400, time: "30")
                     
                 }
                 
@@ -92,6 +93,8 @@ struct ProfilePage: View {
 
 
 struct WalkingStatsView: View {
+ 
+    
     let steps: Int
     let calories: Int
     let time: String
