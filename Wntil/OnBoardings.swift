@@ -14,10 +14,10 @@ struct Page : Identifiable {
 }
 
 var DataP = [
-    Page(id: 0, image: "ob1", title: "Walk to Hunt!", descrip: "Explore within our historical sites, hunting for clues of our legacies and history, a lot of  treasures are wait for your discovery."),
+    Page(id: 0, image: "onb1", title: "Walk to Hunt!", descrip: "Explore within our historical sites, hunting for clues of our legacies and history, a lot of  treasures are wait for your discovery."),
     
-    Page(id: 1, image: "ob2", title: "Walk to Win!", descrip: "Take a walk to catch one of our Riyadh flags, with the iconic Kingdom Tower invites you to explore its surroundings."),
-    Page(id: 2, image: "ob3", title: "Walk to Burn!", descrip: "Walk and witness how buildings reach for the sky. Burn calories and dispel any bad mood along the way.")
+    Page(id: 1, image: "onnb2", title: "Walk to Win!", descrip: "Take a walk to catch one of our Riyadh flags, with the iconic Kingdom Tower invites you to explore its surroundings."),
+    Page(id: 2, image: "onnb3", title: "Walk to Burn!", descrip: "Walk and witness how buildings reach for the sky. Burn calories and dispel any bad mood along the way.")
 ]
 
 struct OnBoardings: View {
@@ -52,10 +52,9 @@ struct OnBoardings: View {
                                       
                                         ZStack{
                                             Image(DataP[index].image)
-                                                .padding(.top, 170)
+                                                .padding(.top, 100)
                                             
-                                            Image("fairyWalking")
-                                                .padding(.top, 300)
+
                                         }
                                         
                                     }}

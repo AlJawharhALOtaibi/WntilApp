@@ -1,4 +1,3 @@
-//
 //  ProfilePage.swift
 //  Wntil
 //
@@ -9,86 +8,103 @@ import SwiftUI
 import SafariServices
 
 struct ProfilePage: View {
+    @Environment(\.presentationMode) var presentationMode
 
-    
     var body: some View {
         NavigationView {
-        VStack {
-            HStack {
-                Text("Profile")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                Spacer()
+            VStack {
+                HStack {
+                    Text("Profile")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+                    Spacer()
+                    
+                    Image("Profile")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50)
+                        .clipShape(Circle())
+                        .padding(.trailing, 10)
+                }
+                .padding()
                 
-                Image("Profile")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 50, height: 50)
-                    .clipShape(Circle())
-                    .padding(.trailing, 10)
+                List {
+                    
+                    
+                    Text("Personal Information")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.black)
+                    
+                    WalkingStatsView(steps: 22, calories: 400, time: "30")
+                    
+                    Section(header:
+                                Text("Know about Fairy")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.black)
+                    ){
+                        VStack {
+                            
+                            //                            Text("Story")
+                            //                                .font(.headline)
+                            //                                .foregroundColor(.black)
+                            //                            
+                            NavigationLink(destination: WebView(url: URL(string: "https://www.tiktok.com/@wntil_app?_t=8jWFVqOJXSK&_r=1")!)) {
+                                HStack {
+                                    Image("tiktok")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 30, height: 30)
+                                    
+                                    Text("TikTok")
+                                        .font(.headline)
+                                    
+                                }
+                            }
+                            
+                            .padding()
+                            
+                            NavigationLink(destination: WebView(url: URL(string: "https://x.com/wntilapp?s=21&t=yHsX53HCYXesuCKf9cmD9Q")!)) {
+                                HStack {
+                                    Image("x")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 24, height: 24)
+                                        .clipShape(Circle())
+                                    
+                                    Text("X")
+                                        .font(.headline)
+                                    
+                                }     // .padding(.leading)
+                                
+                            }                             .padding()
+                            
+                            
+                        }
+                        
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray, lineWidth: 0.5)
+                        )
+                        .frame(width: 350)
+                        .padding(.horizontal)
+                        
+                    }
+                    
+                    //                    Section {
+                    //                        PremiumButtonView()
+                    //                    }
+                }
+                .listStyle(PlainListStyle())
             }
-            .padding()
             
-            List {
-                Section(header:
-                            Text("Personal Information")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.black)
-                ) {
-                    
-                }
-                
-                Section(header:
-                            Text("Walking Stats")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.black)
-                ) {
-                    WalkingStatsView(steps:22 , calories: 400, time: "30")
-                    
-                }
-                
-                Section (header:
-                            Text("Settings")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.black)
-                ) {
-                    //SettingView()
-                }
-                
-                Section (header:
-                            Text("Know about Fairy 🔥")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(.black)
-                ){
-                    NavigationLink(destination: FairyStoryView()) {
-                        Text("Story")
-                            .font(.headline)
-                            .foregroundColor(.black)
-                    }
-                    NavigationLink(destination: WebView(url: URL(string: "https://www.tiktok.com/@wntil_app?_t=8jWFVqOJXSK&_r=1")!)) {
-                        Text("TikTok")
-                            .font(.headline)
-                            .foregroundColor(.customBlue)
-                    }
-                    
-                    NavigationLink(destination: WebView(url: URL(string: "https://x.com/wntilapp?s=21&t=yHsX53HCYXesuCKf9cmD9Q")!)) {
-                        Text("X")
-                            .font(.headline)
-                            .foregroundColor(.customBlue)
-                    }
-                }
-                Section(){
-                    
-                    PremiumButtonView()
-                    
-                }
-            }
-            .listStyle(PlainListStyle())
-        }
-        }         .navigationBarHidden(true)
-
+        } .navigationBarHidden(true)             .navigationBarBackButtonHidden(true)
     }
+       
+
+    
 }
 
 
@@ -100,19 +116,31 @@ struct WalkingStatsView: View {
     let time: String
     
     var body: some View {
-        HStack {
-            WalkingStatBoxView(value: steps, label: "Steps", systemName: "figure.walk")
-            WalkingStatBoxView(value: calories, label: "Cal", systemName: "flame")
-            WalkingStatBoxView(value: time, label: "Time", systemName: "hourglass")
+        
+       
+        VStack {
+            Text("Walking Stats")
+                .font(.system(size: 18, weight: .bold))
+                .foregroundColor(.black)
+                .padding(.trailing, 170)
+                .padding()
+            
+            HStack{
+                
+                WalkingStatBoxView(value: steps, label: "Steps", systemName: "figure.walk")
+                WalkingStatBoxView(value: calories, label: "Cal", systemName: "flame.fill")
+                WalkingStatBoxView(value: time, label: "Time", systemName: "hourglass")
+            }  .padding()
+            
         }
-        .padding()
+        
         .background(Color.white)
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.gray, lineWidth: 0.5)
         )
-        .frame(maxWidth: .infinity)
+        .frame(width: 350)
         .padding()
     }
 }
@@ -136,29 +164,18 @@ struct WalkingStatBoxView: View {
         }
         .padding()
         .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+        .frame(width: 79)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.gray, lineWidth: 0.5)
         )
+        .frame(width: 90)
+        .padding(.horizontal,5)
     }
 }
 
 
 
-struct FairyStoryView: View {
-    var body: some View {
-        VStack {
-            
-            Text("Fairy Story Page")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.primary)
-                .padding()
-            
-        
-        }
-    }
-}
 
 
 struct WebView: UIViewControllerRepresentable {
@@ -172,32 +189,25 @@ struct WebView: UIViewControllerRepresentable {
     }
 }
 
-struct PremiumButtonView: View {
-    var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                Spacer()
-                Image(systemName: "crown.fill")
-                    .foregroundColor(.white)
-                Text("Go Premium")
-                    .foregroundColor(.white)
-                    .font(.headline)
-                    .bold()
-                Spacer()
-            }
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 30).fill(Color.yellow))
-            Spacer()
-        }
-    }
-}
+//struct PremiumButtonView: View {
+//    var body: some View {
+//        VStack {
+//            Spacer()
+//            HStack {
+//                Spacer()
+//                Image(systemName: "crown.fill")
+//                    .foregroundColor(.white)
+//                Text("Go Premium")
+//                    .foregroundColor(.white)
+//                    .font(.headline)
+//                    .bold()
+//                Spacer()
+//            }
+//            .padding()
+//            .background(RoundedRectangle(cornerRadius: 30).fill(Color.yellow))
+//            Spacer()
+//        }
+//    }
+//}
+//
 
-
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfilePage()
-    }
-}

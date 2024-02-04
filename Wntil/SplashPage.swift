@@ -5,27 +5,35 @@
 //  Created by AlJawharh AlOtaibi on 10/07/1445 AH.
 //  Almost Completed: Need a Gif
 
-
 import SwiftUI
 
 struct SplashView: View {
-    @State private var isAnimationFinished = false
-    
+    @State private var isAnimating = false
+    var completion: () -> Void
+
     var body: some View {
         ZStack {
-            Color.white.edgesIgnoringSafeArea(.all)
-        
-                Image("Fairy")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                            withAnimation {
-                                isAnimationFinished = true
-                            }
-                        }
-            }
+            Color.white
+                .edgesIgnoringSafeArea(.all)
+
+            Image("Fairy")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: 170, maxHeight: 140)
+                .opacity(isAnimating ? 0.8 : 1.0)
+                .onAppear {
+                    animateImages()
+                }
+        }
+    }
+
+    private func animateImages() {
+        withAnimation(Animation.easeInOut(duration: 0.17).repeatForever(autoreverses: true)) {
+            isAnimating.toggle()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
+            completion()
         }
     }
 }
-

@@ -10,8 +10,8 @@ import CoreData
 
 struct MainPage: View {    
     @State private var showOtherObjectView = false
-    @State private var currentLevel = 5
-    @State private var upcomingLevel = 9
+    @State private var currentLevel = 1
+    @State private var upcomingLevel = 10
     @Environment(\.managedObjectContext) private var viewContext
     
     
@@ -116,7 +116,7 @@ struct MainPage: View {
 
                                                   Text(selectedObject?.name ?? "")
                                                       .font(.headline)
-                                                      .font(.system(size: 40))
+                                                      .font(.system(size: 100))
                                                       .foregroundColor(.white)
                                               }
                                           )
@@ -127,6 +127,7 @@ struct MainPage: View {
                                                   showButton = true
                                               }
                                           }
+
                                           .accessibility(label: Text("Challenge Image"))
                                           .accessibility(hint: Text("Tap to change the challenge"))
 
