@@ -1,54 +1,61 @@
-//  ProfilePage.swift
-//  Wntil
-//
-//  Created by AlJawharh AlOtaibi on 06/07/1445 AH.
-//
-
 import SwiftUI
 import SafariServices
 
 struct ProfilePage: View {
     @Environment(\.presentationMode) var presentationMode
+    @State private var selectedHistoryItem: HistoryItem?
 
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    Text("Profile")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(.primary)
-                    Spacer()
-                    
                     Image("Profile")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
                         .clipShape(Circle())
+
+                    Spacer()
+                    
+                    Text("الملف الشخصي")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, 10)
                 }
                 .padding()
                 
                 List {
+                    VStack {
+                        Text("اعدادات عامة")
+                            .font(.system(size: 18, weight: .bold))
+                            .foregroundColor(.black)
+                            .frame(maxWidth: .infinity, alignment: .trailing) // Align text to the trailing edge
+                    }
                     
-                    
-                    Text("Personal Information")
-                        .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(.black)
-                    
-                    WalkingStatsView(steps: 22, calories: 400, time: "30")
+                    // Leap Mode Toggle
+                    Toggle(isOn: .constant(true)) { // Here we use a constant binding
+                        Text("Leap مظهر")
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.gray, lineWidth: 0.5)
+                    )
+                    .padding(.horizontal)
                     
                     Section(header:
-                                Text("Know about Fairy")
-                        .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(.black)
-                    ){
+                                VStack {
+                                    Text("تابعنا على")
+                                        .font(.system(size: 18, weight: .bold))
+                                        .foregroundColor(.black)
+                                        .frame(maxWidth: .infinity, alignment: .trailing) // Align text to the trailing edge
+                                }
+                    ) {
                         VStack {
-                            
-                            //                            Text("Story")
-                            //                                .font(.headline)
-                            //                                .foregroundColor(.black)
-                            //                            
                             NavigationLink(destination: WebView(url: URL(string: "https://www.tiktok.com/@wntil_app?_t=8jWFVqOJXSK&_r=1")!)) {
                                 HStack {
                                     Image("tiktok")
@@ -60,9 +67,8 @@ struct ProfilePage: View {
                                         .font(.headline)
                                     
                                 }
+                                .padding()
                             }
-                            
-                            .padding()
                             
                             NavigationLink(destination: WebView(url: URL(string: "https://x.com/wntilapp?s=21&t=yHsX53HCYXesuCKf9cmD9Q")!)) {
                                 HStack {
@@ -75,13 +81,10 @@ struct ProfilePage: View {
                                     Text("X")
                                         .font(.headline)
                                     
-                                }     // .padding(.leading)
-                                
-                            }                             .padding()
-                            
-                            
+                                }
+                                .padding()
+                            }
                         }
-                        
                         .background(Color.white)
                         .cornerRadius(10)
                         .overlay(
@@ -90,93 +93,40 @@ struct ProfilePage: View {
                         )
                         .frame(width: 350)
                         .padding(.horizontal)
-                        
                     }
                     
-                    //                    Section {
-                    //                        PremiumButtonView()
-                    //                    }
+                    // Add HistoryPage section
+                    Section(header:
+                        VStack {
+                            Text("جولاتك السابقة")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundColor(.black)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                        }
+                    ) {
+                        
+                        HistoryPage { historyItem in
+                            selectedHistoryItem = historyItem // Update selected history item
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity) // Fill available space
+                    }
                 }
                 .listStyle(PlainListStyle())
             }
-            
-        } .navigationBarHidden(true)             .navigationBarBackButtonHidden(true)
-    }
-       
-
-    
-}
-
-
-struct WalkingStatsView: View {
- 
-    
-    let steps: Int
-    let calories: Int
-    let time: String
-    
-    var body: some View {
-        
-       
-        VStack {
-            Text("Walking Stats")
-                .font(.system(size: 18, weight: .bold))
-                .foregroundColor(.black)
-                .padding(.trailing, 170)
-                .padding()
-            
-            HStack{
-                
-                WalkingStatBoxView(value: steps, label: "Steps", systemName: "figure.walk")
-                WalkingStatBoxView(value: calories, label: "Cal", systemName: "flame.fill")
-                WalkingStatBoxView(value: time, label: "Time", systemName: "hourglass")
-            }  .padding()
-            
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
+            .gesture(
+                DragGesture()
+                    .onEnded { gesture in
+                        if gesture.translation.width > 100 {
+                            // Swipe right, so dismiss the profile page
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    }
+            )
         }
-        
-        .background(Color.white)
-        .cornerRadius(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.gray, lineWidth: 0.5)
-        )
-        .frame(width: 350)
-        .padding()
     }
 }
-
-struct WalkingStatBoxView: View {
-    let value: Any
-    let label: String
-    let systemName: String
-    
-    var body: some View {
-        VStack {
-            Image(systemName: systemName)
-                .font(.largeTitle)
-                .foregroundColor(Color(hex: 0x2D1A8E))
-            Text("\(String(describing: value))")
-                .font(.headline)
-                .foregroundColor(Color(hex: 0x2D1A8E))
-            Text(label)
-                .font(.subheadline)
-                .foregroundColor(Color(hex: 0x2D1A8E))
-        }
-        .padding()
-        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-        .frame(width: 79)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.gray, lineWidth: 0.5)
-        )
-        .frame(width: 90)
-        .padding(.horizontal,5)
-    }
-}
-
-
-
-
 
 struct WebView: UIViewControllerRepresentable {
     let url: URL
@@ -188,26 +138,3 @@ struct WebView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {
     }
 }
-
-//struct PremiumButtonView: View {
-//    var body: some View {
-//        VStack {
-//            Spacer()
-//            HStack {
-//                Spacer()
-//                Image(systemName: "crown.fill")
-//                    .foregroundColor(.white)
-//                Text("Go Premium")
-//                    .foregroundColor(.white)
-//                    .font(.headline)
-//                    .bold()
-//                Spacer()
-//            }
-//            .padding()
-//            .background(RoundedRectangle(cornerRadius: 30).fill(Color.yellow))
-//            Spacer()
-//        }
-//    }
-//}
-//
-

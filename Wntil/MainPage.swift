@@ -1,77 +1,40 @@
-//
-//  MainPage.swift
+
+//  SplashPage.swift
 //  Wntil
 //
-//  Created by AlJawharh AlOtaibi on 06/07/1445 AH.
-//
+//  Created by AlJawharh AlOtaibi on 10/07/1445 AH.
+//  Fix the backgraound image
 
 import SwiftUI
 import CoreData
 
-struct MainPage: View {    
-    @State private var showOtherObjectView = false
-    @State private var currentLevel = 1
-    @State private var upcomingLevel = 10
+struct MainPage: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
+    @Binding var showOtherObjectView: Bool
+    @State private var showButton = false
+    @State private var objects: [(name: String, emoji: String)] = [
+        ("أحمر", "🔴"), ("أزرق", "🔵"), ("أخضر", "🟢"),
+        ("سيكل", "🚲"), ("قطار", "🚈"), ("باص", "🚌"),
+        ("مطعم", "🍽️"), ("مقهى", "☕️"), ("مسجد", "🕌"), ("علامة التوقف", "⛔️"), ("حديقة", "🌳"), ("قطة", "🐈"), ("لمبة", "💡"), ("ورده", "🌷"), ("أصفر", "🌕")
+    ]
+
+    @State private var selectedObject: (name: String, emoji: String)?
+
     
     var body: some View {
-        TabView {
-            HomeView(currentLevel: $currentLevel, upcomingLevel: $upcomingLevel, showOtherObjectView: $showOtherObjectView)
-                .tabItem {
-                    Image(systemName: "flame.fill")
-                    Text("Main")
-                }
-                     
-            
-            HistoryPage()
-                .tabItem {
-                    Image(systemName: "clock.fill")
-                    Text("History")
-                }
-        }
-        .accentColor(.customBlue)
-        .navigationBarBackButtonHidden(true)
-        .onAppear {
-        }
-    }
-    
-    
-    struct HomeView: View {
-        @State private var showButton = false
-        @Binding var currentLevel: Int
-        @Binding var upcomingLevel: Int
-        @Binding var showOtherObjectView: Bool
-        @State private var objects: [(name: String, emoji: String)] = [
-                    ("Red", "🔴"), ("Blue", "🔵"), ("Green", "🟢"),
-                    ("Bicycle", "🚲"), ("Train", "🚈"), ("Bus", "🚌"),
-                    ("Restaurant", "🍽️"), ("Cafe", "☕️"), ("Mosque", "🕌"), ("Stop Sign", "⛔️"), ("Park", "🌳"), ("Cat", "🐈"), ("Lighting", "💡"), ("Flowers", "🌷"), ("Yellow", "🌕")
-                ]
-
-        @State private var selectedObject: (name: String, emoji: String)?
         
-        
-        var body: some View {
-            NavigationView {
+        NavigationView {
+            ZStack {
                 ZStack {
+                    Image("background")
+                        .resizable()
+                        .scaledToFill()
+                        .edgesIgnoringSafeArea(.all)
+                    
                     VStack {
+                        
+                        Spacer().frame(height: 50)
                         HStack {
-                            
-                            VStack {
-                                Text(greetingByTime())
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                    .padding(.leading,-15)
-                                
-                                    .padding(.bottom,4)
-
-                                Text("Ready to burn and win?")
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.gray)
-                                    .font(.system(size: 13))                              .padding(.leading, -5)
-                            }
-                            
-                            Spacer()
                             
                             NavigationLink(destination: ProfilePage()) {
                                 Image("Profile")
@@ -81,20 +44,71 @@ struct MainPage: View {
                                     .padding(.trailing, 2)
                                     .accessibility(label: Text("Profile"))
                             }
+                            
+                            Spacer()
+                            
+                            VStack {
+                                
+
+                                
+                                Text(greetingByTime())
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .padding(.leading,-15)
+                                
+                                    .padding(.bottom,4)
+                                
+                                Text("مستعد تنافس مشعل؟")
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.gray)
+                                    .font(.system(size: 13))
+                                    .padding(.leading, -5)
+                            }
                         }
                         .padding()
                         
-                        LevelCardView(currentLevel: $currentLevel, upcomingLevel: $upcomingLevel)
-                        
-                        Text("Fairy has selected your challenge:")
+                        Spacer().frame(height: 100)
+
+                        Text("مشعل اختار لك تحدي، قدها؟")
                             .font(.headline)
                             .fontWeight(.bold)
                             .padding(.top, 20)
                             .multilineTextAlignment(.center)
                             .font(.system(size: 20))
                             .padding(.horizontal)
-
-                        Text("If you wish to select a different object, please double-click.")
+                        
+                        
+                        
+                        Image("CenterFire")
+                            .resizable()
+                            .frame(width: 170, height: 220)
+                            .padding(.bottom,20)
+                            .overlay(
+                                VStack {
+                                    Text(selectedObject?.emoji ?? "ابدأ")
+                                        .padding(.top, 110)
+                                        .font(.system(size: 30))
+                                        .bold()
+                                        .foregroundColor(.white)
+                                    
+                                    Text(selectedObject?.name ?? "")
+                                        .font(.headline)
+                                        .font(.system(size: 100))
+                                        .foregroundColor(.white)
+                                }
+                            )
+                            .onTapGesture {
+                                if !showOtherObjectView {
+                                    objects.shuffle()
+                                    selectedObject = objects.randomElement()
+                                    showButton = true
+                                }
+                            }
+                            .accessibility(label: Text("Challenge Image"))
+                            .accessibility(hint: Text("Tap to change the challenge"))
+                        
+                        
+                        Text("ملاحظة: اضغط مره ثانية إذا ودك تختار بنفسك")
                             .font(.system(size: 14))
                             .multilineTextAlignment(.center)
                             .foregroundColor(.gray)
@@ -102,49 +116,22 @@ struct MainPage: View {
                             .padding(.top, 2)
                             .padding(.bottom,10)
                         
-                        Image("CenterFire")
-                                          .resizable()
-                                          .frame(width: 170, height: 220)
-                                          .padding(.bottom,20)
-                                          .overlay(
-                                              VStack {
-                                                  Text(selectedObject?.emoji ?? "Start")
-                                                      .padding(.top, 110)
-                                                      .font(.system(size: 30))
-                                                      .bold()
-                                                      .foregroundColor(.white)
+                        
+                        if showButton {
+                            NavigationLink(destination: WalkPage(selectedObject: $selectedObject), isActive: $showOtherObjectView) {
+                                Text("شعلها !")
+                                    .font(.headline)
+                                    .frame(width: 300, height: 50)
+                                    .foregroundColor(.white)
+                                    .background(Color.customBlue)
+                                    .cornerRadius(10)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 4)
+                            }
 
-                                                  Text(selectedObject?.name ?? "")
-                                                      .font(.headline)
-                                                      .font(.system(size: 100))
-                                                      .foregroundColor(.white)
-                                              }
-                                          )
-                                          .onTapGesture {
-                                              if !showOtherObjectView {
-                                                  objects.shuffle()
-                                                  selectedObject = objects.randomElement()
-                                                  showButton = true
-                                              }
-                                          }
-
-                                          .accessibility(label: Text("Challenge Image"))
-                                          .accessibility(hint: Text("Tap to change the challenge"))
-
-                                      if showButton {
-                                          NavigationLink(destination: WalkPage(), isActive: $showOtherObjectView) {
-                                              Text("Let's Go!")
-                                                  .font(.headline)
-                                                  .frame(width: 300, height: 50)
-                                                  .foregroundColor(.white)
-                                                  .background(Color.customBlue)
-                                                  .cornerRadius(10)
-                                                  .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 4)
-                                          }
-                                          .accessibility(label: Text("Start Walking Button"))
-                                      }
-
-
+                            .accessibility(label: Text("Start Walking Button"))
+                        }
+                        
+                        
                         
                         Spacer()
                     }
@@ -152,79 +139,20 @@ struct MainPage: View {
                 }
             }
         }
-                
-        func greetingByTime() -> String {
-            let currentDate = Date()
-            let calendar = Calendar.current
-            let currentHour = calendar.component(.hour, from: currentDate)
+    }
             
-            if 5 <= currentHour && currentHour < 12 {
-                return "Good Morning!"
-            } else if 12 <= currentHour && currentHour < 18 {
-                return "Good Afternoon!"
-            } else {
-                return "Good Evening!"
-            }
-        }
-    }
-    
-    struct LevelCardView: View {
-        @Binding var currentLevel: Int
-        @Binding var upcomingLevel: Int
+    func greetingByTime() -> String {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let currentHour = calendar.component(.hour, from: currentDate)
         
-        var body: some View {
-            ZStack {
-                Image("Card")
-                    .resizable()
-                    .frame(width: 330, height: 150)
-                
-                VStack {
-                    HStack {
-                        Text("Achieve the next level by taking a 10,000-step walk!")
-                            .fontWeight(.bold)
-                            .font(.system(size: 14))
-                            .padding(.horizontal)
-                        
-                        Spacer()
-                        
-                        CircularProgressView(progress: CGFloat(currentLevel) / CGFloat(upcomingLevel))
-                            .frame(width: 70, height: 70)
-                        
-                    }
-                    .padding()
-                    
-                }
-                .padding()
-            }
-            .cornerRadius(10)
+        if 5 <= currentHour && currentHour < 12 {
+            return "صباح الخير !"
+            
+        } else {
+            return "مساء الخير !"
         }
     }
     
-    
-    struct CircularProgressView: View {
-        var progress: CGFloat
-        
-        var body: some View {
-            ZStack {
-                Circle()
-                    .stroke(lineWidth: 10)
-                    .opacity(0.2)
-                    .foregroundColor(Color.customLightBlue)
-                
-                Circle()
-                    .trim(from: 0.0, to: progress)
-                    .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(Color.customBlue)
-                    .rotationEffect(Angle(degrees: -90))
-                    .animation(.linear)
-                
-                Image("FirstLevel")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40, height: 40)
-                    .foregroundColor(Color.yellow)
-            }
-        }
-    }
     
 }

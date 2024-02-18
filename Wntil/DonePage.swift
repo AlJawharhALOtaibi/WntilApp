@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DonePage: View {
+    @State private var showOtherObjectView = false
     var body: some View {
         VStack {
             
@@ -28,7 +29,8 @@ struct DonePage: View {
                 .accessibility(label: Text("Completion Subtitle"))
             
      
-            NavigationLink(destination: MainPage()) {
+            NavigationLink(destination: MainPage(showOtherObjectView: $showOtherObjectView)
+) {
                 Text("Back To Main Page")
                     .font(.headline)
                     .frame(width: 300, height: 50)

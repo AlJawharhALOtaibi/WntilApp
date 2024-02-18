@@ -81,13 +81,14 @@ struct ActivityView: View {
 
 
 struct WalkPage: View {
+    @Binding var selectedObject: (name: String, emoji: String)?
+    
     @StateObject var dataController = DataController()
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var showAlert = false
     @State private var showMessage = false
     @State private var isActiveNavigationLink = false
-    var selectedObject: (name: String, emoji: String)?
     @State private var elapsedTime: TimeInterval = 0
     @State private var capturedImage: UIImage?
     @State private var stepCount: Int = 0
@@ -115,31 +116,34 @@ struct WalkPage: View {
         
     
         VStack {
+            Spacer().frame(height: 50)
+
             HStack {
-                Text("Walking Now")
-                    .font(.title)
-                    .bold()
-                    .padding(.trailing, 110)
-                    .accessibility(label: Text("Walking Now"))
                 
-                Button("End Walk") {
+                Button("وقفت المشي؟") {
                     showAlert = true
                 }
                 .foregroundColor(.customRed)
                 .bold()
-                .accessibility(label: Text("End Walk"))
+                .accessibility(label: Text("وقفت المشي؟"))
                 .alert(isPresented: $showAlert) {
                     Alert(
-                        title: Text("Confirmation"),
-                        message: Text("Are you sure you want to end the walk?"),
-                        primaryButton: .default(Text("Yes")) {
+                        title: Text("تأكيد"),
+                        message: Text("هل تود انهاء التحدي؟"),
+                        primaryButton: .default(Text("نعم")) {
                             isActiveNavigationLink = true
                             presentationMode.wrappedValue.dismiss()
                         },
-                        secondaryButton: .cancel()
-                    )
+                        secondaryButton: .cancel(Text("الغاء"))                    )
                 }
                 
+   
+
+                Text("على طريقك")
+                    .font(.title)
+                    .bold()
+                    .padding(.leading, 110)
+                    .accessibility(label: Text("على طريقك"))
             }
          
         }
@@ -148,14 +152,6 @@ struct WalkPage: View {
         
         
         ZStack {
-       
-/*
-            Image("Skyline")
-                .resizable()
-                .frame(width: 500, height: 370)
-                .aspectRatio(contentMode: .fill)
-                .accessibility(label: Text("Skyline image"))
-  */
             GifImage(name: "Fairy4")
               .accessibility(label: Text("Walkline image"))
               .offset(x:0 , y: 100)
@@ -165,21 +161,22 @@ struct WalkPage: View {
         
         
           Spacer()
-            
-
         
             VStack{
                 HStack {
                     Spacer()
-                    ActivityView(title: "steps", value: " \(stepCount)")
+                    ActivityView(title: "خطوات", value: "\(stepCount)")
                         .foregroundColor(.white)
+                        .font(.system(size: 16))
                     Spacer()
-                    ActivityView(title: "Kcal", value: "\(calorieCount)")
+                    ActivityView(title: "سعرة حرارية", value: "\(calorieCount)")
                         .foregroundColor(.white)
+                        .font(.system(size: 15))
+                    Spacer()
+                    ActivityView(title: "دقيقة", value: "\(formattedTime(elapsedTime))")
+                        .foregroundColor(.white)
+                        .font(.system(size: 16))
 
-                    Spacer()
-                    ActivityView(title: "min", value: "\(formattedTime(elapsedTime))")
-                        .foregroundColor(.white)
 
                     Spacer()
                 }.offset(y: 20)
@@ -188,47 +185,30 @@ struct WalkPage: View {
                 
                 HStack {
                     Spacer()
-                    
-                    Text("Found it?")
-                        .padding(.trailing,270)
-                        .padding(.top,20)
-                    
-                    
-//                    Button("What you're looking for.") {
-//                        showMessage = true
-//                    }
-//                    .foregroundColor(.gray)
-                    
-                        .accessibility(label: Text("What you're looking for."))
-                        .alert(isPresented: $showMessage) {
-                                   Alert(
-                                       title: Text(selectedObject?.name ?? ""),
-                                       message: Text(selectedObject?.emoji ?? ""),
-                                       dismissButton: .default(Text("OK")) {
-                                           // Optional: Add an action when the user taps the OK button
-                                           showMessage = false
-                                       }
-                                   )
-                               }
-                  
+                            
                         }
-                    
                 
-                
-                
-                Button("Capture it!") {
+                Button(action: {
                     isCaptureSheetPresented.toggle()
-                     dataController.addHistory(date: Date(), stepCount: stepCount, calorieCount: calorieCount, context:viewContext)
-                     dataController.save(context: dataController.container.viewContext)
+                    dataController.addHistory(date: Date(), stepCount: stepCount, calorieCount: calorieCount, context: viewContext)
+                    dataController.save(context: dataController.container.viewContext)
+                }) {
+                    HStack {
+                        
+                        if let selectedObject = selectedObject {
+                            Text(selectedObject.emoji)
+                            Text(selectedObject.name)
+                            
+                        }
+                        
+                        Text("صور")
+                    }
                 }
-                
-                
                 .padding()
                 .font(.headline)
                 .frame(width: 300, height: 50)
                 .foregroundColor(.white)
                 .background(Color.customBlue)
-                .cornerRadius(10)
                 .cornerRadius(10)
                 .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 4)
                 .sheet(isPresented: $isCaptureSheetPresented) {
@@ -238,9 +218,10 @@ struct WalkPage: View {
                         shouldContinueCounting = true
                         startCounting() // Start counting again after capturing the image
                         isCaptureComplete = true // Trigger navigation to the third view
-                        
                     }
                 }
+
+
             
             Spacer()
                 .onAppear {
@@ -338,10 +319,13 @@ return calorieCount1
 }
 
 
-
 struct WalkPage_Previews: PreviewProvider {
-static var previews: some View {
-WalkPage()
+    @State static var selectedObject: (name: String, emoji: String)? = nil
+
+    static var previews: some View {
+        WalkPage(selectedObject: $selectedObject)
+    }
 }
-}
+
+
 
